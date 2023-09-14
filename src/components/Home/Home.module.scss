@@ -1,0 +1,23 @@
+@import '../../stylesheets/base/variables.scss';
+
+.homeContainer {
+    width: 100vw;
+    height: 100vh;
+    background: $kh-black;
+    -webkit-box-shadow: inset 0 0 200px 0px $kh-violet;
+    box-shadow: inset 0 0 200px 0px $kh-violet;
+    color: $kh-lilac;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 148px;
+    }
+    p {
+        font-family: 'Roboto Mono', monospace;
+        font-size: 48px;
+    }
+    
+}

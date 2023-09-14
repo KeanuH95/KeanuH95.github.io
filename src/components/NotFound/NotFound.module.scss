@@ -1,0 +1,64 @@
+@import '../../stylesheets/base/variables.scss';
+
+.notFoundContainer {
+  background: $kh-black;
+  -webkit-box-shadow: inset 0 0 200px 0px $kh-violet;
+  box-shadow: inset 0 0 200px 0px $kh-violet;
+  display: flex;
+  flex-direction: column;
+  flex-grow: inherit;
+  height: 100vh;
+}
+
+.notFoundContent {
+  display: flex;
+  flex-direction: column;
+  padding: 80px 80px;
+  margin: 0 auto;
+  justify-content: center;
+  color: $kh-lilac;
+  h1 {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 60px;
+    margin: 0 0;
+  }
+  h2 {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 30px;
+    padding-bottom: 20px;
+  }
+  @media screen and (max-width: $mobile-width) {
+      padding: 80px 30px;
+  }
+}
+
+.desc {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 17px;
+  max-width: 372px;
+  padding-bottom: 30px;
+}
+
+.homeBtn {
+  a {
+    width: 373px;
+    height: 52px;
+    background-color: $kh-indigo;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 5px;
+    color: $kh-lilac;
+    line-height: 52px;
+    letter-spacing: 1.05px;
+    text-transform: uppercase;
+    padding: 0 16px;
+    font-size: 15px;
+    font-weight: 400;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    @media screen and (max-width: $mobile-width) {
+      width: 100%;
+    }
+  }
+}
