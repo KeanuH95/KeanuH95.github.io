@@ -1,19 +1,36 @@
 import "./stylesheets/index.scss";
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
+import Nav from "./components/Nav/Nav"
 import Home from "./components/Home/Home";
 import NotFound from "./components/NotFound/NotFound";
 import routes from "./utils/routes";
 
-export default class App extends React.Component {
-  render() {
+function App () {
     return (
       <Router>
         <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
         </Routes>
       </Router>
     )
+
+  function Layout() {
+    return (
+        <div style={{
+          width: "100vw",
+          minHeight: "100vh",
+          background: "#1E1E1E",
+          boxShadow: "inset 0 0 300px 0px #230344" }}>
+        <Nav />
+        <Outlet />
+        
+      </div>
+    );
   }
 }
+
+export default App;
