@@ -1,0 +1,22 @@
+@import '../../stylesheets/base/variables.scss';
+
+.bgText {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+
+    .initials {
+        height: 100%;
+        display: flex;
+        font-family: "Gorehand";
+        align-items: center;
+        justify-content: space-around;
+        font-size: 50vw;
+        color: $kh-gray;
+        opacity: .02;
+    }
+}

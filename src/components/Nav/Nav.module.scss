@@ -1,7 +1,8 @@
 @import '../../stylesheets/base/variables.scss';
-@import '../../index.css';
 
 .navBar {
+    position: relative;
+    z-index: 2;
     color: $kh-lilac;
     display: flex;
     justify-content: space-between;

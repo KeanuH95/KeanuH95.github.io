@@ -1,4 +1,5 @@
 @import '../../stylesheets/base/variables.scss';
+@import '../../stylesheets/base/common.scss';
 
 .homeContent {
     display: flex;
@@ -65,21 +66,9 @@
         h3 {
             font-size: 32px;
         }
-    }
-}
-
-.contactButton {
-    cursor: pointer;
-    width: 200px;
-    height: 60px;
-    font-size: 16px;
-    color: $kh-gold;
-    font-family: 'Roboto', monospace;
-    background: transparent;
-    border: solid 1px $kh-gray;
-    border-radius: 4px;
-    :focus {
-        outline: none;
+        p {
+            width: 95%;
+        }
     }
 }
 
