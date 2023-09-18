@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.fb4f5e34.css",
-    "main.js": "/static/js/main.28f0e66b.js",
-    "static/media/silhouette.png": "/static/media/silhouette.3e4afd2f6fa57a34318d.png",
-    "static/media/JPHDesignLogo.png": "/static/media/JPHDesignLogo.981cc69c28eb94da06e7.png",
-    "static/media/Gorehand-2O0Ve.ttf": "/static/media/Gorehand-2O0Ve.9e9e7cbb0f0decfd7261.ttf",
-    "static/media/KHLogo.png": "/static/media/KHLogo.d9e1a46c804d3afd93b8.png",
-    "index.html": "/index.html",
-    "main.fb4f5e34.css.map": "/static/css/main.fb4f5e34.css.map",
-    "main.28f0e66b.js.map": "/static/js/main.28f0e66b.js.map"
+    "main.css": "/KeanuH95.github.io/static/css/main.02873a7c.css",
+    "main.js": "/KeanuH95.github.io/static/js/main.6212f7d2.js",
+    "static/media/silhouette.png": "/KeanuH95.github.io/static/media/silhouette.3e4afd2f6fa57a34318d.png",
+    "static/media/JPHDesignLogo.png": "/KeanuH95.github.io/static/media/JPHDesignLogo.981cc69c28eb94da06e7.png",
+    "static/media/Gorehand-2O0Ve.ttf": "/KeanuH95.github.io/static/media/Gorehand-2O0Ve.9e9e7cbb0f0decfd7261.ttf",
+    "static/media/KHLogo.png": "/KeanuH95.github.io/static/media/KHLogo.d9e1a46c804d3afd93b8.png",
+    "index.html": "/KeanuH95.github.io/index.html",
+    "main.02873a7c.css.map": "/KeanuH95.github.io/static/css/main.02873a7c.css.map",
+    "main.6212f7d2.js.map": "/KeanuH95.github.io/static/js/main.6212f7d2.js.map"
   },
   "entrypoints": [
-    "static/css/main.fb4f5e34.css",
-    "static/js/main.28f0e66b.js"
+    "static/css/main.02873a7c.css",
+    "static/js/main.6212f7d2.js"
   ]
 }
