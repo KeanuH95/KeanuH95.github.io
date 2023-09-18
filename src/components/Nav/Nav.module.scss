@@ -1,14 +1,24 @@
 @import '../../stylesheets/base/variables.scss';
+@import '../../index.css';
 
 .navBar {
     color: $kh-lilac;
-    font-family: 'Poppins', sans-serif;
     display: flex;
     justify-content: space-between;
     width: 100%;
 
     h1 {
         margin-left: $mobile-padding;
+        font-family: "Gorehand";
+        font-size: 48px;
+    }
+
+    a {
+        text-decoration: none;
+        color: $kh-gold;
+        :visited {
+            color: $kh-gold;
+        }
     }
 
     ul {
@@ -25,7 +35,7 @@
 
     @media screen and (max-width: $mobile-width) {
         h1 {
-            font-size: 20px;
+            font-size: 30px;
         }
         li {
             font-size: 12px;

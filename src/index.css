@@ -10,3 +10,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+@font-face {
+  font-family: "Gorehand";
+  src: local("Gorehand"), url(./fonts/Gorehand-2O0Ve.ttf) format('truetype');
+}
