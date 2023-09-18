@@ -1,1 +1,39 @@
 @import '../../stylesheets/base/variables.scss';
+
+.workWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    flex: 1;
+    padding: $regular-padding $regular-padding;
+
+    @media screen and (max-width: $mobile-width) {
+        padding: 0px $mobile-padding;
+    }
+}
+
+.workContent {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    width: 100%;
+    h1 {
+        font-size: 42px;
+        color: $kh-lilac;
+    }
+}
+
+.workProjects {
+    padding: 30px 0px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 30px;
+
+    @media screen and (max-width: $screen-lg) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media screen and (max-width: $mobile-width) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
