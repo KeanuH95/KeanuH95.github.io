@@ -7,7 +7,7 @@ import BGInitials from "../BGInitials/BGInitials";
 function Contact() {
   return (
     <>
-      <div className={styles.contactContent}>
+      <div className={styles.pageWrapper}>
         <div className={styles.contactInfo}>
           <h1>Get In Touch</h1>
           <p>

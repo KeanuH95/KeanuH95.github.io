@@ -10,7 +10,7 @@ import BGInitials from "../BGInitials/BGInitials";
 
 function Work() {
   return (
-    <div className={styles.workWrapper}>
+    <div className={styles.pageWrapper}>
       <div className={styles.workContent}>
         <h1>Companies and Projects I've Helped Build</h1>
         <div className={styles.workProjects}>

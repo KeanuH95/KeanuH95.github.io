@@ -1,0 +1,60 @@
+@import '../../stylesheets/base/variables.scss';
+@import '../../stylesheets/base/common.scss';
+
+.experienceContent {
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    h1 {
+        text-align: center;
+        font-size: 50px;
+        color: $kh-lilac;
+    }
+}
+
+.professionalExperience {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    
+    @media screen and (max-width: $screen-lg) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.experienceItem {
+    width: 100%;
+}
+
+.jobTitle, .jobEmployer, .jobTime {
+    text-align: center;
+}
+
+.jobTitle {
+    color: $kh-lilac;
+    font-size: 2em;
+}
+
+.jobEmployer {
+    color: $kh-gold;
+    font-size: 30px;
+}
+
+.jobTime {
+    color: $kh-gray;
+    font-size: 20px;
+    font-family: 'Roboto', monospace;
+}
+
+.jobDesc {
+    color: $kh-gray;
+    font-size: 18px;
+
+    li::marker {
+        content: '🟣 ';
+        font-size: 15px;
+    }
+    @media screen and (max-width: $screen-lg) {
+        width: 80%;
+        margin: 0 auto;
+    }
+}

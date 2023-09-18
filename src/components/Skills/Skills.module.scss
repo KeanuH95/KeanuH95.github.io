@@ -1,1 +1,32 @@
 @import '../../stylesheets/base/variables.scss';
+@import '../../stylesheets/base/common.scss';
+
+.skillsContent {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    width: 100%;
+    h1 {
+        font-size: 42px;
+        color: $kh-lilac;
+    }
+    h2, p {
+        color: $kh-gray;
+    }
+}
+
+.skillLists {
+    display: flex;
+    justify-content: space-around;
+
+    ul {
+        color: $kh-gray;
+        font-family: 'Roboto', monospace;
+
+        li {
+            list-style-type: none;
+        }
+    }
+    @media screen and (max-width: 700px) {
+        flex-direction: column;
+    }
+}

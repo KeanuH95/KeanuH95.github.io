@@ -1,19 +1,9 @@
 @import '../../stylesheets/base/variables.scss';
 @import '../../stylesheets/base/common.scss';
 
-.contactContent {
+.pageWrapper {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    flex: 1;
     z-index: 2;
-    padding: $regular-padding $regular-padding;
-
-    @media screen and (max-width: $mobile-width) {
-        padding: 0px $mobile-padding;
-    }
 }
 
 .contactInfo {
