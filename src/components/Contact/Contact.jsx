@@ -13,7 +13,7 @@ function Contact() {
           <p>
             I am currently looking for new work opprotunities and 
             hope to find a position that will allow me to grow professionally, 
-            earn leadership and develop cool products.
+            gain leadership skills, and develop cool products.
           </p>
         </div>
         <div className={styles.contactButtons}>

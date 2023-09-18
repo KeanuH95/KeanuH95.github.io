@@ -5,7 +5,7 @@ const routes = {
     EXPERIENCE_ROUTE: "/experience",
     CONTACT_ROUTE: "/contact",
     LINKEDIN: "https://www.linkedin.com/in/keanu-hilaire-60ab26127/",
-    EMAIL_ME: "mailto:keanuhilaire@gmail.com"
+    EMAIL_ME: "mailto:keanuhilaire@gmail.com",
 };
 
 export const {

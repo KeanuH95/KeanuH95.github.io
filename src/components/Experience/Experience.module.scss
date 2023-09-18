@@ -26,15 +26,17 @@
 }
 
 .jobTitle, .jobEmployer, .jobTime {
+    display: block;
     text-align: center;
 }
 
 .jobTitle {
     color: $kh-lilac;
-    font-size: 2em;
+    font-size: 1.9em;
 }
 
 .jobEmployer {
+    text-decoration: none;
     color: $kh-gold;
     font-size: 30px;
 }

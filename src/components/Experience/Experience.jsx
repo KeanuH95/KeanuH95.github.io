@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from './Experience.module.scss';
 
 function Experience() {
@@ -9,7 +10,7 @@ function Experience() {
         <div className={styles.professionalExperience}>
           <div className={styles.experienceItem}>
             <div className={styles.jobTitle}>Software Engineer</div>
-            <div className={styles.jobEmployer}>Newco: An IAC Incubator</div>
+            <Link target="_blank" rel="noopener noreferrer" to={"https://buildwithnewco.com/"} className={styles.jobEmployer}>Newco: An IAC Incubator</Link>
             <div className={styles.jobTime}>August 2020 - Present</div>
             <div className={styles.jobDesc}>
               <ul>
@@ -22,7 +23,7 @@ function Experience() {
           </div>
           <div className={styles.experienceItem}>
             <div className={styles.jobTitle}>Pre-Calculus/Robotics Teacher</div>
-            <div className={styles.jobEmployer}>Northwood School</div>
+            <Link target="_blank" rel="noopener noreferrer" to={"https://www.northwoodschool.org/"} className={styles.jobEmployer}>Northwood School</Link>
             <div className={styles.jobTime}>June 2019 - June 2020</div>
             <div className={styles.jobDesc}>
               <ul>
@@ -33,7 +34,7 @@ function Experience() {
           </div>
           <div className={styles.experienceItem}>
             <div className={styles.jobTitle}>Software Engineer Intern</div>
-            <div className={styles.jobEmployer}>Friends & Family</div>
+            <Link target="_blank" rel="noopener noreferrer" to={"http://www.friendsfamily.co/"} className={styles.jobEmployer}>Friends & Family</Link>
             <div className={styles.jobTime}>June 2018 - August 2018</div>
             <div className={styles.jobDesc}>
               <ul>
