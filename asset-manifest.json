@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.ab4830e0.css",
+    "main.css": "/static/css/main.86e69fe3.css",
     "main.js": "/static/js/main.410098d6.js",
     "static/media/silhouette.png": "/static/media/silhouette.3e4afd2f6fa57a34318d.png",
     "static/media/JPHDesignLogo.png": "/static/media/JPHDesignLogo.981cc69c28eb94da06e7.png",
     "static/media/Gorehand-2O0Ve.ttf": "/static/media/Gorehand-2O0Ve.9e9e7cbb0f0decfd7261.ttf",
     "static/media/KHLogo.png": "/static/media/KHLogo.d9e1a46c804d3afd93b8.png",
     "index.html": "/index.html",
-    "main.ab4830e0.css.map": "/static/css/main.ab4830e0.css.map",
+    "main.86e69fe3.css.map": "/static/css/main.86e69fe3.css.map",
     "main.410098d6.js.map": "/static/js/main.410098d6.js.map"
   },
   "entrypoints": [
-    "static/css/main.ab4830e0.css",
+    "static/css/main.86e69fe3.css",
     "static/js/main.410098d6.js"
   ]
 }
