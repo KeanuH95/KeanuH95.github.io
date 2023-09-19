@@ -14,9 +14,32 @@ import SiteLoader from "./components/SiteLoader/SiteLoader"
 import routes from "./utils/routes";
 import { AnimatePresence } from "framer-motion";
 import { HelmetProvider } from "react-helmet-async";
+import styled, { ThemeProvider } from "styled-components";
+import ThemeToggle from "./components/ThemeToggle/ThemeToggle";
 
 function App () {
   const [isLoading, setIsLoading] = useState(true);
+  const [isBlackTheme, setIsBlackTheme] = useState(false);
+
+  const purpleTheme = {
+    background: "#460673",
+    shadow: "#1E1E1E"
+  }
+
+  const blackTheme = {
+    background: "#1E1E1E",
+    shadow: "#460673"
+  }
+  
+  const BGTheme = styled.div`
+    width: 100vw;
+    min-height: 100vh;
+    background: ${(props) => props.theme.background};
+    box-shadow: inset 0px 0px 200px 10px ${(props) => props.theme.shadow}; 
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  `;
 
   useEffect(() => {
     const loadSite = () => {
@@ -28,7 +51,8 @@ function App () {
   }, []);
   
   if (isLoading) {
-    return <SiteLoader />;
+    
+    return <ThemeProvider theme={isBlackTheme ? blackTheme : purpleTheme}><SiteLoader /></ThemeProvider>;
   } else {
     return (
       <Router>
@@ -49,24 +73,18 @@ function App () {
       </Router>
     )
   }
-  
 
   function Layout() {
     return (
-        <div style={{
-          width: "100vw",
-          minHeight: "100vh",
-          background: "#1E1E1E",
-          boxShadow: "inset 0 0 200px 0px #230344", 
-          display: "flex", 
-          flexDirection: "column",
-          overflow: "hidden"
-        }}>
-        <Nav />
-        <Outlet />
-        <Footer />
-        <BGInitials />
-      </div>
+      <ThemeProvider theme={isBlackTheme ? blackTheme : purpleTheme}>
+        <BGTheme>
+          <Nav />
+          <Outlet />
+          <Footer />
+          <BGInitials />
+          <ThemeToggle isBlackTheme={isBlackTheme} setIsBlackTheme={setIsBlackTheme} />
+        </BGTheme>
+      </ThemeProvider>
     );
   }
 }
