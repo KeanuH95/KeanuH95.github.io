@@ -1,5 +1,5 @@
 @import '../../stylesheets/base/variables.scss';
-
+@import '../../stylesheets/base/common.scss';
 .notFoundContainer {
   display: flex;
   flex-direction: column;
@@ -37,10 +37,10 @@
 }
 
 .homeBtn {
+  border-radius: 8px;
   a {
     width: 373px;
     height: 52px;
-    background-color: $kh-indigo;
     display: inline-block;
     text-align: center;
     vertical-align: middle;

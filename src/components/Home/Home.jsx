@@ -24,7 +24,7 @@ function Home() {
                         <h2>Keanu Hilaire.</h2>
                         <h3>I like to build cool products.</h3>
                         <p>
-                            I'm a software engineer with based in Brooklyn specializing in backend, 
+                            I'm a software engineer based in Brooklyn specializing in backend, 
                             web and microservices development. I have a strong history of developing application 
                             features and software solutions to enhance user experience on several startups. 
                         </p>
