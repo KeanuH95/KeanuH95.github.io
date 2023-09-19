@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { motion, AnimateSharedLayout } from "framer-motion";
+import { motion } from "framer-motion";
 import styles from "./Nav.module.scss";
 import routes from "../../utils/routes";
 import { Link } from "react-router-dom";
@@ -27,7 +27,7 @@ function Nav () {
     ];
     return (
         <nav className={styles.navBar}>
-            <h1><Link to={routes.HOME_ROUTE}>KH</Link></h1>
+            <h1><Link onClick={() => setSelected(null)} to={routes.HOME_ROUTE}>KH</Link></h1>
                 <ul>
                     {navItems.map(({ title, path }, i) => (
                         <motion.li
@@ -36,13 +36,13 @@ function Nav () {
                             onClick={() => setSelected(i)}
                             animate
                         >
+                            <Link to={path}>{title}</Link>
                             {i === selected && (
                                 <motion.div
-                                    className="underline"
+                                    className={styles.underline}
                                     layoutId="underline"
                                 />
                             )}
-                            <Link to={path}>{title}</Link>
                         </motion.li>
                     ))}
                 </ul>

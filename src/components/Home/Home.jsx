@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import styles from "./Home.module.scss";
@@ -13,6 +14,9 @@ function Home() {
             exit={{ opacity: 0 }}
             transition={{duration: 1, ease: "easeInOut"}}
         >
+            <Helmet>
+                <title>Keanu Hilaire | Portfolio</title>
+            </Helmet>
             <div className={styles.pageWrapper}>
                 <div className={styles.homeIntro}>
                     <div className={styles.introText}>

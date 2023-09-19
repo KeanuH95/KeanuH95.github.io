@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { container, item } from "../../utils/textAnimation";
 import { Link } from "react-router-dom";
@@ -12,6 +13,9 @@ function Experience() {
       exit={{ opacity: 0 }}
       transition={{ duration: .8, ease: "easeInOut" }}
     >
+      <Helmet>
+        <title>Keanu Hilaire | My Experience</title>
+      </Helmet>
       <div className={styles.pageWrapper}>
         <div className={styles.experienceContent}>
           <h1>Where I've Worked</h1>

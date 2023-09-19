@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import styles from "./Work.module.scss";
 import OarHealthLogo from "../../images/OarHealthLogo.jpg";
@@ -16,6 +17,9 @@ function Work() {
       exit={{ opacity: 0 }}
       transition={{ duration: .8, ease: "easeInOut" }}
     >
+      <Helmet>
+        <title>Keanu Hilaire | My Work</title>
+      </Helmet>
       <div className={styles.pageWrapper}>
         <div className={styles.workContent}>
           <h1>Companies and Projects I've Helped Build</h1>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { container, item } from "../../utils/textAnimation";
 import styles from './Skills.module.scss';
@@ -11,6 +12,9 @@ function Skills() {
       exit={{ opacity: 0 }}
       transition={{ duration: .8, ease: "easeInOut" }}
     >
+      <Helmet>
+        <title>Keanu Hilaire | My Skills</title>
+      </Helmet>
       <div className={styles.pageWrapper}>
         <div className={styles.skillsContent}>
           <h1>My Skill Set</h1>

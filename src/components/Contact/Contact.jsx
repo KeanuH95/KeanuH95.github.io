@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import routes from "../../utils/routes";
@@ -12,6 +13,9 @@ function Contact() {
       exit={{ opacity: 0 }}
       transition={{ duration: .8, ease: "easeInOut" }}
     >
+      <Helmet>
+        <title>Keanu Hilaire | Contact Me</title>
+      </Helmet>
       <div className={styles.pageWrapper}>
         <div className={styles.contactInfo}>
           <h1>Get In Touch</h1>
