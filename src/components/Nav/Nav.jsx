@@ -27,7 +27,7 @@ function Nav () {
     ];
     return (
         <nav className={styles.navBar}>
-            <h1><a href={routes.HOME_ROUTE}>KH</a></h1>
+            <h1><Link to={routes.HOME_ROUTE}>KH</Link></h1>
                 <ul>
                     {navItems.map(({ title, path }, i) => (
                         <motion.li

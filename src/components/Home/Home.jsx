@@ -11,7 +11,7 @@ function Home() {
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             exit={{ opacity: 0 }}
-            transition={{duration: .8, ease: "easeInOut"}}
+            transition={{duration: 1, ease: "easeInOut"}}
         >
             <div className={styles.pageWrapper}>
                 <div className={styles.homeIntro}>

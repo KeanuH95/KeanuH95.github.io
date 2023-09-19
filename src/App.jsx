@@ -1,5 +1,5 @@
 import "./stylesheets/index.scss";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
 import Nav from "./components/Nav/Nav"
 import Footer from "./components/Footer/Footer"
@@ -10,13 +10,28 @@ import Skills from "./components/Skills/Skills";
 import Contact from "./components/Contact/Contact";
 import NotFound from "./components/NotFound/NotFound";
 import BGInitials from "./components/BGInitials/BGInitials";
+import SiteLoader from "./components/SiteLoader/SiteLoader"
 import routes from "./utils/routes";
 import { AnimatePresence } from "framer-motion";
 
 function App () {
-    return (  
-        <Router>
-          <AnimatePresence mode="wait">
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const loadSite = () => {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 6000)
+    };
+    loadSite();
+  }, []);
+  
+  if (isLoading) {
+    return <SiteLoader />;
+  } else {
+    return (
+      <Router>
+        <AnimatePresence mode="wait">
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
@@ -27,9 +42,11 @@ function App () {
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
-          </AnimatePresence>
-        </Router>
+        </AnimatePresence>
+      </Router>
     )
+  }
+  
 
   function Layout() {
     return (
