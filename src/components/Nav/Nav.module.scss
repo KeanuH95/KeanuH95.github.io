@@ -43,6 +43,7 @@
     li.selected {
         list-style-type: none;
         font-size: 22px;
+        font-weight: 700;
         text-decoration: underline;
         color: $kh-gold;
     }
@@ -52,7 +53,7 @@
             font-size: 30px;
         }
         li {
-            font-size: 12px;
+            font-size: 12px !important;
         }
     }
 }
