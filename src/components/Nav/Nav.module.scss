@@ -22,16 +22,29 @@
         }
     }
 
+    .underline {
+        text-decoration: underline;
+    }
+
     ul {
         font-family: 'Roboto Mono', monospace;
         display: flex;
+        justify-content: space-around;
         align-items: center;
+        list-style-type: none;
         margin-right: $mobile-padding;
     }
 
     li {
         list-style-type: none;
         margin: 0px 10px;
+    }
+
+    li.selected {
+        list-style-type: none;
+        font-size: 22px;
+        text-decoration: underline;
+        color: $kh-gold;
     }
 
     @media screen and (max-width: $mobile-width) {

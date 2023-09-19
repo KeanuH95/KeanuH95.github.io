@@ -1,15 +1,21 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import routes from "../../utils/routes";
 import styles from './Contact.module.scss';
-import BGInitials from "../BGInitials/BGInitials";
 
 function Contact() {
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: .8, ease: "easeInOut" }}
+    >
       <div className={styles.pageWrapper}>
         <div className={styles.contactInfo}>
           <h1>Get In Touch</h1>
+          <p style={{fontSize: '50px', margin: '20px 0px'}}>👋🏾</p>
           <p>
             I am currently looking for new work opprotunities and 
             hope to find a position that will allow me to grow professionally, 
@@ -25,8 +31,7 @@ function Contact() {
           </Link>
         </div>
       </div>
-      <BGInitials />
-    </>
+    </motion.div>
   );
 }
 

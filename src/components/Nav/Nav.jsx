@@ -1,18 +1,51 @@
 import React from "react";
+import { useState } from "react";
+import { motion, AnimateSharedLayout } from "framer-motion";
 import styles from "./Nav.module.scss";
 import routes from "../../utils/routes";
 import { Link } from "react-router-dom";
 
 function Nav () {
+    const [selected, setSelected] = useState(null);
+    const navItems = [
+        {
+            title: "Work",
+            path: `${routes.WORK_ROUTE}`
+        },
+        {
+            title: "Skills",
+            path: `${routes.SKILLS_ROUTE}`
+        },
+        {
+            title: "Experience",
+            path: `${routes.EXPERIENCE_ROUTE}`
+        },
+        {
+            title: "Contact",
+            path: `${routes.CONTACT_ROUTE}`
+        }
+    ];
     return (
         <nav className={styles.navBar}>
             <h1><a href={routes.HOME_ROUTE}>KH</a></h1>
-            <ul>
-                <li><Link to={routes.WORK_ROUTE}>Work</Link></li>
-                <li><Link to={routes.SKILLS_ROUTE}>Skills</Link></li>
-                <li><Link to={routes.EXPERIENCE_ROUTE}>Experience</Link></li>
-                <li><Link to={routes.CONTACT_ROUTE}>Contact</Link></li>
-            </ul>
+                <ul>
+                    {navItems.map(({ title, path }, i) => (
+                        <motion.li
+                            key={i}
+                            className={`${styles.title} ${i === selected && `${styles.selected}`}`}
+                            onClick={() => setSelected(i)}
+                            animate
+                        >
+                            {i === selected && (
+                                <motion.div
+                                    className="underline"
+                                    layoutId="underline"
+                                />
+                            )}
+                            <Link to={path}>{title}</Link>
+                        </motion.li>
+                    ))}
+                </ul>
         </nav>
     )
 }

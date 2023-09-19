@@ -1,18 +1,6 @@
 @import '../../stylesheets/base/variables.scss';
 @import '../../stylesheets/base/common.scss';
 
-.homeContent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    flex: 1;
-    padding: $regular-padding $regular-padding;
-    @media screen and (max-width: $mobile-width) {
-        padding: 0px $mobile-padding;
-    }
-}
-
 .homeIntro {
     position: relative;
     z-index: 2;

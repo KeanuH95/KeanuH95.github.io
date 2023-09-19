@@ -1,42 +1,49 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { container, item } from "../../utils/textAnimation";
 import styles from './Skills.module.scss';
-import BGInitials from "../BGInitials/BGInitials";
 
 function Skills() {
   return (
-    <div className={styles.pageWrapper}>
-      <div className={styles.skillsContent}>
-        <h1>My Skill Set</h1>
-        <h2>Here are some technologies I've worked with:</h2>
-        <div className={styles.skillLists}>
-          <ul>
-            <h3>Languages:</h3>
-            <li>Java</li>
-            <li>Javascript/Typescript</li>
-            <li>Ruby</li>
-            <li>HTML/CSS</li>
-            <li>SQL</li>
-            <li>Python</li>
-            <li>C++</li>
-          </ul>
-          <ul>
-            <h3>Frameworks/Libraries:</h3>
-            <li>Ruby on Rails</li>
-            <li>Spring Boot</li>
-            <li>React</li>
-            <li>Redux</li>
-          </ul>
-          <ul>
-            <h3>Other Technologies:</h3>
-            <li>AWS Cloud Products</li>
-            <li>Heroku</li>
-          </ul>
-        </div>
-        <p>*Not included are a vast array of third party web integrations for analytics, ads, payment processing and logging.</p>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: .8, ease: "easeInOut" }}
+    >
+      <div className={styles.pageWrapper}>
+        <div className={styles.skillsContent}>
+          <h1>My Skill Set</h1>
+          <h2>Here are some technologies I've worked with:</h2>
+          <div className={styles.skillLists}>
+            <motion.ul variants={container} initial="hidden" animate="show">
+              <h3>Languages:</h3>
+              <motion.li variants={item}>Java</motion.li>
+              <motion.li variants={item}>Javascript/Typescript</motion.li>
+              <motion.li variants={item}>Ruby</motion.li>
+              <motion.li variants={item}>HTML/CSS</motion.li>
+              <motion.li variants={item}>SQL</motion.li>
+              <motion.li variants={item}>Python</motion.li>
+              <motion.li variants={item}>C++</motion.li>
+            </motion.ul>
+            <motion.ul variants={container} initial="hidden" animate="show">
+              <h3>Frameworks/Libraries:</h3>
+              <motion.li variants={item}>Ruby on Rails</motion.li>
+              <motion.li variants={item}>Spring Boot</motion.li>
+              <motion.li variants={item}>React</motion.li>
+              <motion.li variants={item}>Redux</motion.li>
+            </motion.ul>
+            <motion.ul variants={container} initial="hidden" animate="show">
+              <h3>Other Technologies:</h3>
+              <motion.li variants={item}>AWS Cloud Products</motion.li>
+              <motion.li variants={item}>Heroku</motion.li>
+            </motion.ul>
+          </div>
+          <p>*Not included is a vast array of third party web integrations for analytics, ads, payment processing, logging, and more.</p>
+        </div>   
       </div>
-       
-      <BGInitials />
-    </div>
+    </motion.div>
+
   );
 }
 
