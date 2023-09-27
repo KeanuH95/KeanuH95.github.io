@@ -55,6 +55,12 @@ function Work() {
             />
           </div>
         </div>
+        <div className={styles.contributionsContent}>
+          <h2>My Recent Contributions</h2>
+          <div className={styles.contributionsImgContainer}>
+            <img src="https://ghchart.rshah.org/460673/KeanuH95" alt="GH Chart"></img>
+          </div>
+        </div>
       </div>
     </motion.div>
   );

@@ -1,5 +1,7 @@
 import "./stylesheets/index.scss";
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { getSiteLanguages, getLatestSiteUpdate } from "./redux/slices/siteInfoSlice";
 import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
 import Nav from "./components/Nav/Nav"
 import Footer from "./components/Footer/Footer"
@@ -20,6 +22,18 @@ import ThemeToggle from "./components/ThemeToggle/ThemeToggle";
 function App () {
   const [isLoading, setIsLoading] = useState(true);
   const [isBlackTheme, setIsBlackTheme] = useState(false);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const loadSite = () => {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 6000)
+    };
+    loadSite();
+    dispatch(getSiteLanguages());
+    dispatch(getLatestSiteUpdate());
+  }, [dispatch]);
 
   const purpleTheme = {
     background: "#460673",
@@ -41,17 +55,7 @@ function App () {
     overflow: hidden;
   `;
 
-  useEffect(() => {
-    const loadSite = () => {
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 6000)
-    };
-    loadSite();
-  }, []);
-  
   if (isLoading) {
-    
     return <ThemeProvider theme={isBlackTheme ? blackTheme : purpleTheme}><SiteLoader /></ThemeProvider>;
   } else {
     return (

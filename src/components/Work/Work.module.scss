@@ -25,3 +25,23 @@
         grid-template-columns: repeat(1, 1fr);
     }
 }
+
+.contributionsContent {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    width: 100%;
+
+    h2 {
+        font-size: 36px;
+        color: $kh-lilac;
+    }
+}
+
+.contributionsImgContainer {
+    width: 80%;
+    margin: 0 auto;
+    img {
+        width: 100%;
+        height: auto;
+    }
+}

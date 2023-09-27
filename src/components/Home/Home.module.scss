@@ -84,3 +84,58 @@
         width: 100%;
     }
 }
+
+.aboutSite {
+    padding: 50px 0px;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: $kh-lilac;
+
+    h2 {
+        font-size: 36px;
+    }
+
+    h3, p {
+        color: $kh-gray;
+    }
+
+    @media screen and (max-width: $mobile-width) {
+        padding: $mobile-padding 0px;
+    }   
+}
+
+.aboutLanguages {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: 0 auto;
+
+    @media screen and (max-width: $mobile-width) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        justify-items: center;
+    }
+}
+
+.languageBubble {
+    height: 100px;
+    width: 100px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    p {
+        margin: 0;
+    }
+    p:first-of-type {
+        font-weight: 700;
+        color: $kh-indigo;
+    }
+
+    p:last-of-type {
+        font-size: 14px;
+    }
+}
