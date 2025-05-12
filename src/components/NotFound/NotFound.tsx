@@ -4,7 +4,7 @@ import { useTheme } from "styled-components";
 import { Link } from "react-router-dom";
 import routes from "../../utils/routes";
 
-function NotFound() {
+export const NotFound: React.FC = () => {
   const theme = useTheme();
 
   return (
@@ -21,6 +21,4 @@ function NotFound() {
       </div>
     </div>
   );
-}
-
-export default NotFound;
+};

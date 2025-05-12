@@ -12,6 +12,7 @@ import {
     REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import { ThunkAction, Action } from "@reduxjs/toolkit";
 
 const persistConfig = {
     key: 'root',
@@ -33,5 +34,21 @@ export const store = configureStore({
 
 export const persistor = persistStore(store);
 
+// Extend the Window interface to include the persistor property
+declare global {
+    interface Window {
+        persistor: typeof persistor;
+    }
+}
+
 window.persistor = persistor;
+
+export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppThunk<ReturnType = void> = ThunkAction<
+  ReturnType,
+  RootState,
+  unknown,
+  Action<string>
+>;
 

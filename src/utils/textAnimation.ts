@@ -1,4 +1,6 @@
-export const container = {
+import { Variants } from "framer-motion";
+
+export const container: Variants = {
     hidden: { 
         opacity: 0 
     },
@@ -9,9 +11,9 @@ export const container = {
             staggerChildren: 0.1,
         },
     }
-}
+};
 
-export const item = {
+export const item: Variants = {
     hidden: { 
         y: "100%",
         opacity: 0  

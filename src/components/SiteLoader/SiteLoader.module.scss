@@ -13,14 +13,14 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    animation: animateScale 3s forwards 3s;
+    animation: animateScale 2s forwards 2s;
 }
 
 #logo path:nth-child(1) {
     stroke: $kh-gold;
     stroke-dasharray: 1281;
     stroke-dashoffset: 1281;
-    animation: animateLine 3s ease-out forwards;
+    animation: animateLine 2s ease-out forwards;
 }
 
 @keyframes animateLine {

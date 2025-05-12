@@ -1,9 +1,9 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import styles from './SiteLoader.module.scss';
 import { useTheme } from "styled-components";
 
-function SiteLoader() {
+export const SiteLoader: React.FC = () => {
     const theme = useTheme();
     return (
         <motion.div
@@ -19,6 +19,4 @@ function SiteLoader() {
             </div>
         </motion.div>
     );
-}
-
-export default SiteLoader;
+};

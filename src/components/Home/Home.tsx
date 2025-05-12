@@ -1,17 +1,16 @@
-import React from 'react';
 import { useSelector } from "react-redux";
 import { selectLanguagePercentages, selectLastSiteUpdate } from "../../redux/slices/siteInfoSlice";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import styles from "./Home.module.scss";
-import Silhouette from "../../images/silhouette.png"
+import Silhouette from "../../images/silhouette.png";
 import routes from "../../utils/routes";
 
 
-function Home() {
-    const latestUpdate = useSelector(selectLastSiteUpdate);
-    const languagePercentages = useSelector(selectLanguagePercentages);
+export const Home: React.FC = () => {
+    const latestUpdate = useSelector(selectLastSiteUpdate) as string | null;
+    const languagePercentages = useSelector(selectLanguagePercentages) as Record<string, number> | null;
 
     return (
             <>
@@ -54,30 +53,31 @@ function Home() {
                 >
                     <div className={styles.aboutSite}>
                         <h2>About This Site</h2>
-                        <p>This portfolio was built using React.js, Redux, and Framer Motion. I've also integrated the Github API in order to provide the information below.</p>
+                        <p>This portfolio was built using React, Redux, and Framer Motion. I've also integrated the Github API in order to provide the information below.</p>
                         <h3>Latest Update:</h3>
-                        <p>{new Date(latestUpdate).toLocaleDateString('en-US')}</p>
+                        <p>{latestUpdate ? new Date(latestUpdate).toLocaleDateString('en-US') : "No updates available"}</p>
                         <h3>Languages Used:</h3>
                         <div className={styles.aboutLanguages}>
                             {
-                                Object.entries(languagePercentages).map((lang, index) => {
+                                languagePercentages ? (Object.entries(languagePercentages).map((lang, index) => {
                                     return (
                                         <motion.div
+                                            key={index}
                                             initial={{ opacity: 0, background: `radial-gradient(closest-side, white 90%, transparent 80% 100%), conic-gradient(#98821e 0%, white 0)`, borderRadius: '50%' }}
                                             whileInView={{ opacity: 1, background: `radial-gradient(closest-side, white 90%, transparent 80% 100%), conic-gradient(#98821e ${lang[1]}%, white 0)`, borderRadius: '50%' }}
                                             viewport={{ once: true }}
                                             transition={{ duration: 1, ease: "easeInOut" }}
                                             whileHover={{ scale: 1.2 }}
                                         >
-                                            <div className={styles.languageBubble} style={{
-                                                
-                                                }} key={index}>
+                                            <div className={styles.languageBubble}>
                                                 <p>{lang[0]}</p>
-                                                <p>{lang[1]}%</p>    
+                                                <p>{`${lang[1]}%`}</p>    
                                             </div>
                                         </motion.div>
-                                    )
-                                })
+                                    ) 
+                                })) : (
+                                    <p>No language data available</p>
+                                )
                             }
                         </div>
                     </div>
@@ -86,5 +86,3 @@ function Home() {
         </>
     );
 }
-
-export default Home;

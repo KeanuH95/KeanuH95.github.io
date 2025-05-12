@@ -1,4 +1,14 @@
-const routes = {
+interface Routes {
+    HOME_ROUTE: string;
+    WORK_ROUTE: string;
+    SKILLS_ROUTE: string;
+    EXPERIENCE_ROUTE: string;
+    CONTACT_ROUTE: string;
+    LINKEDIN: string;
+    EMAIL_ME: string;
+}
+
+const routes: Routes = {
     HOME_ROUTE: "/",
     WORK_ROUTE: "/work",
     SKILLS_ROUTE: "/skills",
