@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "./static/css/main.ed3a3016.css",
-    "main.js": "./static/js/main.5043791d.js",
+    "main.css": "./static/css/main.c48b1c47.css",
+    "main.js": "./static/js/main.76e48012.js",
     "static/media/silhouette.png": "./static/media/silhouette.3e4afd2f6fa57a34318d.png",
     "static/media/JPHDesignLogo.png": "./static/media/JPHDesignLogo.981cc69c28eb94da06e7.png",
     "static/media/Gorehand-2O0Ve.ttf": "./static/media/Gorehand-2O0Ve.9e9e7cbb0f0decfd7261.ttf",
-    "static/media/KHLogo.png": "./static/media/KHLogo.d9e1a46c804d3afd93b8.png",
+    "static/media/StepfulLogo.png": "./static/media/StepfulLogo.bdd872dbd8f25be2bc01.png",
     "static/media/sun.svg": "./static/media/sun.b4ba7b5e7c0833334dafc64925ce0da3.svg",
     "index.html": "./index.html",
-    "main.ed3a3016.css.map": "./static/css/main.ed3a3016.css.map",
-    "main.5043791d.js.map": "./static/js/main.5043791d.js.map"
+    "main.c48b1c47.css.map": "./static/css/main.c48b1c47.css.map",
+    "main.76e48012.js.map": "./static/js/main.76e48012.js.map"
   },
   "entrypoints": [
-    "static/css/main.ed3a3016.css",
-    "static/js/main.5043791d.js"
+    "static/css/main.c48b1c47.css",
+    "static/js/main.76e48012.js"
   ]
 }
