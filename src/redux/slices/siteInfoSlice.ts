@@ -64,7 +64,7 @@ export const {
 export const getSiteLanguages = () => async (dispatch: any) => {
     try {
         dispatch(setSiteInfoIsLoading(true));
-        const response = await axios.get(`${process.env.REACT_APP_GITHUB_API_REPO_URL}/languages`, { headers: { "Authorization": `Bearer ${process.env.REACT_APP_GITHUB_API_TOKEN}` } });
+        const response = await axios.get(`${process.env.REACT_APP_GITHUB_API_REPO_URL}/languages`);
         const { data } = response;
         dispatch(setSiteLanguagesBytes(data));
         dispatch(calculateLanguagePercentages(data));
@@ -91,7 +91,7 @@ const calculateLanguagePercentages = (languageBytes: Record<string, number>) => 
 export const getLatestSiteUpdate = () => async (dispatch: any) => {
     try {
         dispatch(setSiteInfoIsLoading(true));
-        const response = await axios.get(`${process.env.REACT_APP_GITHUB_API_REPO_URL}`, { headers: { "Authorization": `Bearer ${process.env.REACT_APP_GITHUB_API_TOKEN}` } });
+        const response = await axios.get(`${process.env.REACT_APP_GITHUB_API_REPO_URL}`);
         const { data } = response;
         dispatch(setLastSiteUpdate(data?.pushed_at));
         return response;

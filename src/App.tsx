@@ -1,4 +1,5 @@
 import "./stylesheets/index.scss";
+import { ChakraProvider } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from "./redux/store"; // Adjust the path to your store file
@@ -19,6 +20,14 @@ import { HelmetProvider } from "react-helmet-async";
 import styled, { ThemeProvider } from "styled-components";
 import { ThemeToggle } from "./components/ThemeToggle/ThemeToggle";
 import { Experience } from "./components/Experience/Experience";
+import { chakraTheme } from "./chakraTheme";
+
+declare module "styled-components" {
+  export interface DefaultTheme {
+    background: string;
+    shadow: string;
+  }
+}
 
 function App () {
   const [isLoading, setIsLoading] = useState(true);
@@ -61,20 +70,22 @@ function App () {
   } else {
     return (
       <Router>
-        <HelmetProvider>
-          <AnimatePresence mode="wait">
-            <Routes>
-              <Route path="/" element={<Layout />}>
-                <Route index element={<Home />} />
-                <Route path={routes.WORK_ROUTE} element={<Work />} />
-                <Route path={routes.SKILLS_ROUTE} element={<Skills />} />
-                <Route path={routes.EXPERIENCE_ROUTE} element={<Experience />} />
-                <Route path={routes.CONTACT_ROUTE} element={<Contact />} />
-                <Route path="*" element={<NotFound />} />
-              </Route>
-            </Routes>
-          </AnimatePresence>
-        </HelmetProvider>
+        <ChakraProvider theme={chakraTheme}> 
+          <HelmetProvider>
+            <AnimatePresence mode="wait">
+              <Routes>
+                <Route path="/" element={<Layout />}>
+                  <Route index element={<Home />} />
+                  <Route path={routes.WORK_ROUTE} element={<Work />} />
+                  <Route path={routes.SKILLS_ROUTE} element={<Skills />} />
+                  <Route path={routes.EXPERIENCE_ROUTE} element={<Experience />} />
+                  <Route path={routes.CONTACT_ROUTE} element={<Contact />} />
+                  <Route path="*" element={<NotFound />} />
+                </Route>
+              </Routes>
+            </AnimatePresence> 
+          </HelmetProvider>
+        </ChakraProvider>
       </Router>
     )
   }
