@@ -53,11 +53,12 @@ const experiences = [
 
 export const Experience: React.FC = () => {
 	return (
-		<motion.div
+		<Box
+      as={motion.div}
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
-			transition={{ duration: 0.8, ease: "easeInOut" }}
+			transition="0.8, easeInOut"
 		>
 			<Helmet>
 				<title>Keanu Hilaire | My Experience</title>
@@ -118,18 +119,18 @@ export const Experience: React.FC = () => {
 								width={{ base: "80%", lg: "100%" }}
 								margin={{ base: "0 auto", lg: "0" }}
 							>
-                <motion.ul variants={container} initial="hidden" animate="show">
+                <Box as={motion.ul} variants={container} initial="hidden" animate="show">
                   {experience.descriptions.map((desc, descIndex) => (
-                    <motion.li key={descIndex} variants={item}>
+                    <Box as={motion.li} key={descIndex} variants={item}>
                       {desc}
-                    </motion.li>
+                    </Box>
                   ))}
-                </motion.ul>
+                </Box>
 							</Box>
 						</Box>
 					))}
 				</Box>
 			</Box>
-		</motion.div>
+		</Box>
 	);
 };

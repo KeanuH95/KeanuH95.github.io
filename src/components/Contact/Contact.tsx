@@ -7,11 +7,12 @@ import routes from "../../utils/routes";
 
 export const Contact: React.FC = () => {
   return (
-    <motion.div
+    <Box 
+      as={motion.div}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: .8, ease: "easeInOut" }}
+      transition="0.8, easeInOut"
     >
       <Helmet>
         <title>Keanu Hilaire | Contact Me</title>
@@ -69,6 +70,6 @@ export const Contact: React.FC = () => {
           </Box>
         </Center>
       </Box>
-    </motion.div>
+    </Box>
   );
 };

@@ -11,11 +11,11 @@ const skillCategories = [
   },
   {
     title: "Frameworks/Libraries:",
-    skills: ["Ruby on Rails", "Spring Boot", "React", "GraphQL"]
+    skills: ["Ruby on Rails", "Spring Boot", "React", "GraphQL", "Redux", "ChakraUI", "Redis"]
   },
   {
     title: "Other Technologies:",
-    skills: ["AWS Cloud Products", "Heroku"]
+    skills: ["AWS Cloud Products", "Heroku", "DataDog", "Preset"]
   }
 ];
 
