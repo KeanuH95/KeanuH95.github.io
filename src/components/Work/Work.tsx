@@ -24,7 +24,7 @@ export const Work: React.FC = () => {
       <Box className="pageWrapper">
         <Box fontFamily="'Poppins', sans-serif" textAlign="center" width="100%">
           <Text color="lilac.500" fontSize="42px" fontWeight="bold">Companies and Projects I've Helped Build</Text>
-          <Box p="30px 0px" display="grid" gridTemplateColumns={{base: "repeat(2, 1fr)", md: "repeat(3, 1fr)"}}  gridTemplateRows="repeat(2, 1fr)" gap="30px">
+          <Box p="30px 0px" justifyItems="center" display="grid" gridTemplateColumns={{base: "repeat(1, 1fr)", md: "repeat(3, 1fr)"}}  gridTemplateRows="repeat(2, 1fr)" gap="30px">
              <ContentCard
               cardTitle={"Stepful"}
               cardImage={StepfulLogo}

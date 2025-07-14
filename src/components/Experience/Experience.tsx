@@ -112,7 +112,7 @@ export const Experience: React.FC = () => {
 								as="ul"
 								sx={{
 									"li::marker": {
-										content: '"🟣 "',
+										content: '"• "',
 										fontSize: "15px",
 									},
 								}}
