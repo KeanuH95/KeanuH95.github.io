@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/keanuh95.github.io/static/css/main.b35e57c0.css",
-    "main.js": "/keanuh95.github.io/static/js/main.70a6f48f.js",
-    "static/media/Headshot.png": "/keanuh95.github.io/static/media/Headshot.d73e122373623764da3f.png",
-    "static/media/JPHDesignLogo.png": "/keanuh95.github.io/static/media/JPHDesignLogo.981cc69c28eb94da06e7.png",
-    "static/media/Gorehand-2O0Ve.ttf": "/keanuh95.github.io/static/media/Gorehand-2O0Ve.9e9e7cbb0f0decfd7261.ttf",
-    "static/media/StepfulLogo.png": "/keanuh95.github.io/static/media/StepfulLogo.bdd872dbd8f25be2bc01.png",
-    "static/media/sun.svg": "/keanuh95.github.io/static/media/sun.b4ba7b5e7c0833334dafc64925ce0da3.svg",
-    "index.html": "/keanuh95.github.io/index.html",
-    "main.b35e57c0.css.map": "/keanuh95.github.io/static/css/main.b35e57c0.css.map",
-    "main.70a6f48f.js.map": "/keanuh95.github.io/static/js/main.70a6f48f.js.map"
+    "main.css": "/static/css/main.6bd10af1.css",
+    "main.js": "/static/js/main.c544b37e.js",
+    "static/media/Headshot.png": "/static/media/Headshot.d73e122373623764da3f.png",
+    "static/media/JPHDesignLogo.png": "/static/media/JPHDesignLogo.981cc69c28eb94da06e7.png",
+    "static/media/Gorehand-2O0Ve.ttf": "/static/media/Gorehand-2O0Ve.9e9e7cbb0f0decfd7261.ttf",
+    "static/media/StepfulLogo.png": "/static/media/StepfulLogo.bdd872dbd8f25be2bc01.png",
+    "static/media/sun.svg": "/static/media/sun.b4ba7b5e7c0833334dafc64925ce0da3.svg",
+    "index.html": "/index.html",
+    "main.6bd10af1.css.map": "/static/css/main.6bd10af1.css.map",
+    "main.c544b37e.js.map": "/static/js/main.c544b37e.js.map"
   },
   "entrypoints": [
-    "static/css/main.b35e57c0.css",
-    "static/js/main.70a6f48f.js"
+    "static/css/main.6bd10af1.css",
+    "static/js/main.c544b37e.js"
   ]
 }
