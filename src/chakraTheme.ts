@@ -8,10 +8,6 @@ import _ from 'lodash';
 export type ColorScheme = ThemeTypings['colorSchemes'];
 export type ChakraColor = ThemeTypings['colors'];
 
-// NOTE: the default text color (`colors['chakra-body-text']`) is 'gray.800'
-
-// TODO: set semibold to 500. 600 is the same as bold.
-
 export const chakraTheme = extendTheme({
   styles: {
     global: {
