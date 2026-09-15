@@ -1,19 +1,6 @@
-$kh-black: #1E1E1E;
-$kh-gray: #8E8E8E;
-$kh-indigo: #460673;
-$kh-violet: #230344;
-$kh-lilac: #BE97C6;
-$kh-gold: #98821e;
-
-// screen-sizes
+// Layout tokens for the global .pageWrapper utility (common.scss).
+// Color tokens now live SOLELY in src/chakraTheme.ts (single source of truth) —
+// do not re-add $kh-* colors here (Phase 3 consolidation removed the duplicates).
 $mobile-width: 640px;
-$tablet-width: 768px;
-$screen-lg: 1024px;
-$screen-xl: 1280px;
-
-//padding
 $regular-padding: 80px;
 $mobile-padding: 30px;
-
-//transition
-$transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);

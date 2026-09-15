@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
+import type { AppDispatch } from "../store";
 
 interface LanguageState {
     bytes: Record<string, number> | null;
@@ -61,10 +62,10 @@ export const {
     setLastSiteUpdate
 } = siteInfoSlice.actions;
 
-export const getSiteLanguages = () => async (dispatch: any) => {
+export const getSiteLanguages = () => async (dispatch: AppDispatch) => {
     try {
         dispatch(setSiteInfoIsLoading(true));
-        const response = await axios.get(`${process.env.REACT_APP_GITHUB_API_REPO_URL}/languages`);
+        const response = await axios.get(`${import.meta.env.VITE_GITHUB_API_REPO_URL}/languages`);
         const { data } = response;
         dispatch(setSiteLanguagesBytes(data));
         dispatch(calculateLanguagePercentages(data));
@@ -75,7 +76,7 @@ export const getSiteLanguages = () => async (dispatch: any) => {
     }
 };
 
-const calculateLanguagePercentages = (languageBytes: Record<string, number>) => (dispatch: any) => {
+const calculateLanguagePercentages = (languageBytes: Record<string, number>) => (dispatch: AppDispatch) => {
     const totalBytes = Object.values(languageBytes).reduce((partialSum, a) => partialSum + a, 0);
     const languagePercentages = Object.keys(languageBytes).reduce((languagePercentages, key) => {
         const bytes = languageBytes[key];
@@ -88,10 +89,10 @@ const calculateLanguagePercentages = (languageBytes: Record<string, number>) => 
     dispatch(setSiteLanguagesPercentages(languagePercentages));
 }
 
-export const getLatestSiteUpdate = () => async (dispatch: any) => {
+export const getLatestSiteUpdate = () => async (dispatch: AppDispatch) => {
     try {
         dispatch(setSiteInfoIsLoading(true));
-        const response = await axios.get(`${process.env.REACT_APP_GITHUB_API_REPO_URL}`);
+        const response = await axios.get(`${import.meta.env.VITE_GITHUB_API_REPO_URL}`);
         const { data } = response;
         dispatch(setLastSiteUpdate(data?.pushed_at));
         return response;

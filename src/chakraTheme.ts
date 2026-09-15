@@ -105,6 +105,22 @@ export const chakraTheme = extendTheme({
     lilac: { 500: '#BE97C6' },
     gold: { 500: '#98821e' },
   },
+  // Two-mode theme (BR-11), replacing the old styled-components purple/black
+  // themes. light = "purple" (default), dark = "black". bg-main and shadow-main
+  // swap between indigo and black per mode; consumers reference them by token
+  // name (bg="bg-main") or CSS var (var(--chakra-colors-shadow-main)).
+  semanticTokens: {
+    colors: {
+      'bg-main': { default: 'indigo.500', _dark: 'black.500' },
+      'shadow-main': { default: 'black.500', _dark: 'indigo.500' },
+    },
+  },
+  // Theme is NOT persisted across reloads (matches legacy isBlackTheme useState,
+  // BR-11) — the non-persist colorModeManager is applied in App.tsx.
+  config: {
+    initialColorMode: 'light',
+    useSystemColorMode: false,
+  },
   space: {
     // TODO: kill these custom spacing tokens
     xs: '0.5rem', // same as 2

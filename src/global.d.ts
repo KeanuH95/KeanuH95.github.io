@@ -17,10 +17,3 @@ declare module "*.jpg" {
     const content: string;
     export default content;
 }
-
-// Extend the Window interface to include the persistor property
-declare global {
-    interface Window {
-        persistor: typeof persistor;
-    }
-}

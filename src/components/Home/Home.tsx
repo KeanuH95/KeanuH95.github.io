@@ -4,8 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { Box, Button, Text, Image } from "@chakra-ui/react";
-import styles from "./Home.module.scss";
-import Silhouette from "../../images/Headshot.png";
+import Silhouette from "../../images/Headshot.webp";
 import routes from "../../utils/routes";
 
 
@@ -17,9 +16,8 @@ export const Home: React.FC = () => {
         <Box 
                 as={motion.div}
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                animate={{ opacity: 1, transition: { duration: 0.8, ease: "easeInOut" } }}
                 exit={{ opacity: 0 }}
-                transition="0.8, easeInOut"
             >
             <Helmet>
                 <title>Keanu Hilaire | Portfolio</title>
@@ -40,19 +38,30 @@ export const Home: React.FC = () => {
                         </Link>
                         
                     </Box>
-                    <Box alignSelf="center" zIndex="-1" height="auto" maxW={{base: "100%", md: "40%"}} pt={{base: "30px", md: "0px"}} opacity=".8" className={styles.portraitImgContainer}>
+                    <Box
+                        alignSelf="center"
+                        zIndex="-1"
+                        height="auto"
+                        maxW={{base: "100%", md: "40%"}}
+                        pt={{base: "30px", md: "0px"}}
+                        opacity=".8"
+                        sx={{
+                            "--mask": "linear-gradient(to bottom, rgba(0, 0, 0, 1) 0, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0) 0) 100% 50% / 100% 100% repeat-x",
+                            WebkitMask: "var(--mask)",
+                            mask: "var(--mask)",
+                        }}
+                    >
                         <Image height="100%" width="100%" filter="grayscale(1) blur(.5px)" src={Silhouette} alt="Portrait"></Image>
                     </Box>
                 </Box>
                 <Box 
                     as={motion.div}
                     initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
+                    whileInView={{ opacity: 1, transition: { duration: 0.8, ease: "easeInOut" } }}
                     viewport={{ once: true }}
                     exit={{ opacity: 0 }}
-                    transition="0.8, easeInOut"
                 >
-                    <Box p={{base: "30px 0px", md: "50px 0px"}} fontFamily="'Poppins', sans-serif" textAlign="center" width="100%"  className={styles.aboutSite}>
+                    <Box p={{base: "30px 0px", md: "50px 0px"}} fontFamily="'Poppins', sans-serif" textAlign="center" width="100%">
                         <Text fontSize="2xl" fontWeight="bold" color="lilac.500" mb="10px">About This Site</Text>
                         <Text color="gray.500" mb="10px" maxW="600px" textAlign="center">This portfolio was built using React, Redux, ChakraUI, and Framer Motion. I've also integrated the Github API in order to provide the information below.</Text>
                         <Text color="gray.500" fontSize="xl" mb="10px">Latest Update:</Text>
@@ -66,9 +75,8 @@ export const Home: React.FC = () => {
                                             as={motion.div}
                                             key={index}
                                             initial={{ opacity: 0, background: `radial-gradient(closest-side, white 90%, transparent 80% 100%), conic-gradient(#98821e 0%, white 0)`, borderRadius: '50%' }}
-                                            whileInView={{ opacity: 1, background: `radial-gradient(closest-side, white 90%, transparent 80% 100%), conic-gradient(#98821e ${lang[1]}%, white 0)`, borderRadius: '50%' }}
+                                            whileInView={{ opacity: 1, background: `radial-gradient(closest-side, white 90%, transparent 80% 100%), conic-gradient(#98821e ${lang[1]}%, white 0)`, borderRadius: '50%', transition: { duration: 0.8, ease: "easeInOut" } }}
                                             viewport={{ once: true }}
-                                            transition="0.8, easeInOut"
                                             whileHover={{ scale: 1.2 }}
                                         >
                                             <Box height="100px" width="100px" display="flex" flexDirection="column" justifyContent="center">

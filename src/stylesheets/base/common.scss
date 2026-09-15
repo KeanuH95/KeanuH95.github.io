@@ -1,26 +1,6 @@
-.contactButton {
-    cursor: pointer;
-    width: 200px;
-    height: 60px;
-    font-size: 16px;
-    color: $kh-gold;
-    font-family: 'Roboto', monospace;
-    background: transparent;
-    border: solid 1px $kh-gray;
-    border-radius: 4px;
-    transition: $transition;
-
-    :focus {
-        outline: none;
-    }
-
-    &:hover {
-        box-shadow: 4px 4px 0 0 $kh-gray;
-        transform: translate(-5px, -5px);
-    }
-
-}
-
+// Global layout utility used by page components via className="pageWrapper".
+// Kept as a global stylesheet per the modernization brief (Q5). The dead
+// .contactButton class was removed in Phase 3 (no component referenced it).
 .pageWrapper {
     position: relative;
     display: flex;

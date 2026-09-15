@@ -56,9 +56,8 @@ export const Experience: React.FC = () => {
 		<Box
       as={motion.div}
 			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
+			animate={{ opacity: 1, transition: { duration: 0.8, ease: "easeInOut" } }}
 			exit={{ opacity: 0 }}
-			transition="0.8, easeInOut"
 		>
 			<Helmet>
 				<title>Keanu Hilaire | My Experience</title>

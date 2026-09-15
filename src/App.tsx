@@ -1,5 +1,5 @@
 import "./stylesheets/index.scss";
-import { ChakraProvider } from "@chakra-ui/react";
+import { Box, ChakraProvider } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from "./redux/store"; // Adjust the path to your store file
@@ -14,24 +14,16 @@ import { Contact } from "./components/Contact/Contact";
 import { NotFound } from "./components/NotFound/NotFound";
 import { BGInitials } from "./components/BGInitials/BGInitials";
 import { SiteLoader } from "./components/SiteLoader/SiteLoader";
+import { ThemeToggle } from "./components/ThemeToggle/ThemeToggle";
+import { Experience } from "./components/Experience/Experience";
 import routes from "./utils/routes";
 import { AnimatePresence } from "framer-motion";
 import { HelmetProvider } from "react-helmet-async";
-import styled, { ThemeProvider } from "styled-components";
-import { ThemeToggle } from "./components/ThemeToggle/ThemeToggle";
-import { Experience } from "./components/Experience/Experience";
 import { chakraTheme } from "./chakraTheme";
-
-declare module "styled-components" {
-  export interface DefaultTheme {
-    background: string;
-    shadow: string;
-  }
-}
+import { noPersistColorModeManager } from "./colorMode";
 
 function App () {
   const [isLoading, setIsLoading] = useState(true);
-  const [isBlackTheme, setIsBlackTheme] = useState(false);
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
@@ -45,32 +37,15 @@ function App () {
     dispatch(getLatestSiteUpdate());
   }, [dispatch]);
 
-  const purpleTheme = {
-    background: "#460673",
-    shadow: "#1E1E1E"
-  }
-
-  const blackTheme = {
-    background: "#1E1E1E",
-    shadow: "#460673"
-  }
-  
-  const BGTheme = styled.div`
-    width: 100vw;
-    min-height: 100vh;
-    background: ${(props) => props.theme.background};
-    box-shadow: inset 0px 0px 200px 10px ${(props) => props.theme.shadow}; 
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  `;
-
-  if (isLoading) {
-    return <ThemeProvider theme={isBlackTheme ? blackTheme : purpleTheme}><SiteLoader /></ThemeProvider>;
-  } else {
-    return (
-      <Router>
-        <ChakraProvider theme={chakraTheme}> 
+  // INVARIANT: ChakraProvider MUST stay above the isLoading branch so color-mode
+  // state (BR-11 toggle) survives the SiteLoader -> Router swap. Do not move it
+  // inside a branch.
+  return (
+    <ChakraProvider theme={chakraTheme} colorModeManager={noPersistColorModeManager}>
+      {isLoading ? (
+        <SiteLoader />
+      ) : (
+        <Router>
           <HelmetProvider>
             <AnimatePresence mode="wait">
               <Routes>
@@ -83,26 +58,34 @@ function App () {
                   <Route path="*" element={<NotFound />} />
                 </Route>
               </Routes>
-            </AnimatePresence> 
+            </AnimatePresence>
           </HelmetProvider>
-        </ChakraProvider>
-      </Router>
-    )
-  }
+        </Router>
+      )}
+    </ChakraProvider>
+  );
+}
 
-  function Layout() {
-    return (
-      <ThemeProvider theme={isBlackTheme ? blackTheme : purpleTheme}>
-        <BGTheme>
-          <Nav />
-          <Outlet />
-          <Footer />
-          <BGInitials />
-          <ThemeToggle isBlackTheme={isBlackTheme} setIsBlackTheme={setIsBlackTheme} />
-        </BGTheme>
-      </ThemeProvider>
-    );
-  }
+// Full-viewport themed background (was the styled-components BGTheme). Uses the
+// bg-main/shadow-main semantic tokens so it swaps with Chakra color mode.
+function Layout() {
+  return (
+    <Box
+      width="100vw"
+      minHeight="100vh"
+      bg="bg-main"
+      boxShadow="inset 0px 0px 200px 10px var(--chakra-colors-shadow-main)"
+      display="flex"
+      flexDirection="column"
+      overflow="hidden"
+    >
+      <Nav />
+      <Outlet />
+      <Footer />
+      <BGInitials />
+      <ThemeToggle />
+    </Box>
+  );
 }
 
 export default App;

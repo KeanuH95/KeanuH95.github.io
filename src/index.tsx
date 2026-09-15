@@ -3,17 +3,21 @@ import "./index.css";
 import App from './App';
 
 import { Provider } from "react-redux";
-import { PersistGate } from "redux-persist/integration/react";
-import { store, persistor } from "./redux/store";
+import { ColorModeScript } from "@chakra-ui/react";
+import { store } from "./redux/store";
+import { chakraTheme } from "./chakraTheme";
 
 const container = document.getElementById('root') as HTMLElement | null;
 if (container) {
     const root = createRoot(container);
     root.render(
-        <Provider store={store}>
-            <PersistGate loading={null} persistor={persistor}>
+        <>
+            {/* Applies the initial color mode before paint (prevents FOUC).
+                Kept in sync with chakraTheme.config.initialColorMode. */}
+            <ColorModeScript initialColorMode={chakraTheme.config.initialColorMode} />
+            <Provider store={store}>
                 <App />
-            </PersistGate>
-        </Provider>
+            </Provider>
+        </>
     );
 }

@@ -23,3 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 .env
+# modernization working docs (not part of the app)
+/analysis
