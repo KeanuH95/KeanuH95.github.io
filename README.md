@@ -1,4 +1,4 @@
-# Keanu Hilaire
+# Keanu Moreno-Hilaire
 
 Portfolio website built in React.
 

@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 import { motion } from "motion/react";
 import { container, item } from "../../utils/textAnimation";
-import { Box, Text } from "@chakra-ui/react";
+import { Badge, Box, Flex, Text } from "@chakra-ui/react";
 
 const skillCategories = [
   {
@@ -11,11 +11,11 @@ const skillCategories = [
   },
   {
     title: "Frameworks/Libraries:",
-    skills: ["Ruby on Rails", "Spring Boot", "React", "GraphQL", "Redux", "ChakraUI", "Redis"]
+    skills: ["Ruby on Rails", "Spring Boot", "React", "GraphQL", "Redux", "ChakraUI", "Redis", "tRPC"]
   },
   {
     title: "Other Technologies:",
-    skills: ["AWS Cloud Products", "Heroku", "DataDog", "Preset"]
+    skills: ["AWS Cloud Products", "Heroku", "DataDog", "Preset", "Railway"]
   }
 ];
 
@@ -28,13 +28,13 @@ export const Skills: React.FC = () => {
       transition={{ duration: .8, ease: "easeInOut" }}
     >
       <Helmet>
-        <title>Keanu Hilaire | My Skills</title>
+        <title>Keanu Moreno-Hilaire | My Skills</title>
       </Helmet>
       <Box className="pageWrapper" >
-        <Text fontWeight="bold" as="h1" fontSize="42px" color="lilac.500" mb="20px">
+        <Text as="h1" textStyle="pageTitle" color="lilac.500" mb={{ base: 4, md: 6 }}>
           My Skill Set
         </Text>
-        <Text fontWeight="bold" color="gray.500" fontSize="24px">
+        <Text textStyle="subtitle" textAlign="center" color="gray.500">
           Here are some technologies I've worked with:
         </Text>
         <Box
@@ -44,23 +44,24 @@ export const Skills: React.FC = () => {
           justifyContent="space-between"
           flexDirection={{ base: "column", md: "row" }}
           marginTop="20px"
+          gap="20px"
         >
           {skillCategories.map((category, index) => (
-            <motion.ul key={index} variants={container} initial="hidden" animate="show" color="gray.500" >
-              <Text color="gold.500" textAlign="center" fontSize="20px" marginBottom="10px">
+            <motion.ul key={index} variants={container} initial="hidden" animate="show" style={{ flex: 1 }}>
+              <Text fontFamily="heading" fontWeight="semibold" fontSize={{ base: "md", md: "lg" }} color="gold.400" textAlign="center" marginBottom="14px">
                 {category.title}
               </Text>
-              <Box display="flex" flexDirection="column" gap="8px" alignItems="center">
+              <Flex flexWrap="wrap" gap="10px" justifyContent="center" maxW="260px" mx="auto">
                 {category.skills.map((skill, skillIndex) => (
-                  <motion.li key={skillIndex} variants={item} >
-                    <Text color="gray.500" fontFamily="code" listStyleType="none">{skill}</Text>
+                  <motion.li key={skillIndex} variants={item} style={{ listStyleType: "none" }}>
+                    <Badge variant="glass" fontSize="13px">{skill}</Badge>
                   </motion.li>
                 ))}
-              </Box>
+              </Flex>
             </motion.ul>
           ))}
         </Box>
-        <Text as="p" color="gray.500" marginTop="20px">
+        <Text as="p" textStyle="body" color="gray.500" marginTop="20px">
           *Not included is a vast array of third-party web integrations for analytics, ads, payment processing, logging, and more.
         </Text>
       </Box>

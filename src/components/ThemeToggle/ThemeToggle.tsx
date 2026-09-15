@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Image, useColorMode } from "@chakra-ui/react";
 import Sun from "../../images/sun.svg";
+import { glassSurface } from "../../theme/glass";
 
 /**
  * Floating button that flips the site between the two color modes (BR-11).
@@ -13,8 +14,10 @@ export const ThemeToggle: React.FC = () => {
     return (
         <Box
             onClick={toggleColorMode}
-            bg="shadow-main"
-            boxShadow="0px 0px 30px 20px var(--chakra-colors-bg-main)"
+            sx={{
+                ...glassSurface,
+                boxShadow: "0px 0px 30px 12px var(--chakra-colors-bg-main), inset 0 1px 0 rgba(255, 255, 255, 0.25)",
+            }}
             cursor="pointer"
             zIndex={5}
             position="fixed"
@@ -27,6 +30,8 @@ export const ThemeToggle: React.FC = () => {
             alignItems="center"
             margin="20px"
             borderRadius="50%"
+            transition="transform 0.2s ease"
+            _hover={{ transform: "scale(1.08)" }}
         >
             <Image src={Sun} alt="sun" />
         </Box>

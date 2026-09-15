@@ -37,10 +37,12 @@ describe("BR-11 theme contract", () => {
   });
 
   it("maps semantic tokens to the exact legacy colors, in the right direction", () => {
-    // light/purple: bg=indigo(#460673), shadow=black(#1E1E1E); dark swaps them.
+    // light/purple: bg=indigo(#460673), shadow=black(#1E1E1E). bg-main still
+    // swaps to black in dark mode; shadow-main now stays black in both modes
+    // (intentional theme change — the inner glow no longer flips to indigo).
     const tokens = (chakraTheme as any).semanticTokens.colors;
     expect(tokens["bg-main"]).toEqual({ default: "indigo.500", _dark: "black.500" });
-    expect(tokens["shadow-main"]).toEqual({ default: "black.500", _dark: "indigo.500" });
+    expect(tokens["shadow-main"]).toEqual({ default: "black.500", _dark: "black.500" });
     expect((chakraTheme as any).config.initialColorMode).toBe("light");
   });
 

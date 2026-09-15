@@ -7,8 +7,11 @@ import KitLogo from "../../images/KitLogo.png";
 import JPHDesignLogo from "../../images/JPHDesignLogo.png";
 import Stealth from "../../images/Stealth.jpg";
 import StepfulLogo from "../../images/StepfulLogo.png";
+import ElegyLogo from "../../images/ElegyLogo.svg";
+import EstelleLogo from "../../images/EstelleLogo.png";
+import PromptGoatLogo from "../../images/PromptGoatLogoDark.png";
 import { ContentCard } from "../ContentCard/ContentCard";
-import { Box, Text, Image } from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
 
 export const Work: React.FC = () => {
   return (
@@ -19,17 +22,35 @@ export const Work: React.FC = () => {
       transition={{ duration: .8, ease: "easeInOut" }}
     >
       <Helmet>
-        <title>Keanu Hilaire | My Work</title>
+        <title>Keanu Moreno-Hilaire | My Work</title>
       </Helmet>
       <Box className="pageWrapper">
-        <Box fontFamily="'Poppins', sans-serif" textAlign="center" width="100%">
-          <Text color="lilac.500" fontSize="42px" fontWeight="bold">Companies and Projects I've Helped Build</Text>
-          <Box p="30px 0px" justifyItems="center" display="grid" gridTemplateColumns={{base: "repeat(1, 1fr)", md: "repeat(3, 1fr)"}}  gridTemplateRows="repeat(2, 1fr)" gap="30px">
+        <Box textAlign="center" width="100%" paddingBottom="80px">
+          <Text textStyle="pageTitle" color="lilac.500" mb={{ base: 4, md: 6 }}>Companies and Projects I've Helped Build</Text>
+          <Box py={{ base: 8, md: 14 }} justifyItems="center" display="grid" gridTemplateColumns={{base: "repeat(1, 1fr)", md: "repeat(3, 1fr)"}}  gridTemplateRows="repeat(2, 1fr)" gap="30px">
+             <ContentCard
+              cardTitle={"Elegy"}
+              cardImage={ElegyLogo}
+              cardDesc={"Elegy is a dedicated online platform designed to help families organize practical and financial support following the death of a loved one."}
+              cardLink={"https://www.elegy.co/"}
+            />
+            <ContentCard
+              cardTitle={"Estelle"}
+              cardImage={EstelleLogo}
+              cardDesc={"Estelle is an on-call text-based personal astrologer and app that provides personalized astrology readings, relationship guidance, and birth chart insights."}
+              cardLink={"https://www.askestelle.com/"}
+            />
              <ContentCard
               cardTitle={"Stepful"}
               cardImage={StepfulLogo}
               cardDesc={"Stepful specializes in training and placing healthcare professionals in various healthcare roles, including Medical Assistants, Pharmaceutical Technicians, Surgical Technicians, and Phlebotomists."}
               cardLink={"https://www.stepful.com/"}
+            />
+            <ContentCard
+              cardTitle={"PromptGoat"}
+              cardImage={PromptGoatLogo}
+              cardDesc={"PromptGoat is a lightweight browser extension that automatically upgrades your basic text inputs into expert-level AI prompts."}
+              cardLink={"https://promptgoat.co/"}
             />
             <ContentCard
               cardTitle={"Oar Health"}
@@ -59,12 +80,6 @@ export const Work: React.FC = () => {
               cardImage={Stealth}
               cardDesc={"A music startup that empowers both artists and fans. This project had me developing a Java backend and diving into a wide range of AWS services."}
             />
-          </Box>
-        </Box>
-        <Box fontFamily="'Poppins', sans-serif" textAlign="center" width="100%">
-          <Text color="lilac.500" fontSize="36px" fontWeight="bold">My Recent Contributions</Text>
-          <Box width="80%" m="0 auto">
-            <Image width="100%" height="auto" src="https://ghchart.rshah.org/460673/KeanuH95" alt="GH Chart"></Image>
           </Box>
         </Box>
       </Box>

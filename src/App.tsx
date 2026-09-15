@@ -71,13 +71,25 @@ function App () {
 function Layout() {
   return (
     <Box
-      width="100vw"
+      position="relative"
+      width="100%"
       minHeight="100vh"
       bg="bg-main"
       boxShadow="inset 0px 0px 200px 10px var(--chakra-colors-shadow-main)"
       display="flex"
       flexDirection="column"
       overflow="hidden"
+      _before={{
+        content: '""',
+        position: "fixed",
+        inset: 0,
+        zIndex: 0,
+        pointerEvents: "none",
+        // Two soft brand-toned glows so the frosted-glass surfaces have depth
+        // to sample through the backdrop blur (otherwise the frost reads flat).
+        backgroundImage:
+          "radial-gradient(40rem 40rem at 15% 20%, rgba(35, 3, 68, 0.55), transparent 60%), radial-gradient(34rem 34rem at 85% 75%, rgba(212, 175, 55, 0.12), transparent 60%)",
+      }}
     >
       <Nav />
       <Outlet />

@@ -14,29 +14,27 @@ export const Contact: React.FC = () => {
       transition={{ duration: 0.8, ease: "easeInOut" }}
     >
       <Helmet>
-        <title>Keanu Hilaire | Contact Me</title>
+        <title>Keanu Moreno-Hilaire | Contact Me</title>
       </Helmet>
       <Box className="pageWrapper">
         <Box
-          fontFamily="'Poppins', sans-serif"
           textAlign="center"
-          
           margin="20px 0"
         >
           <Text
             as="h1"
-            fontSize={{ base: "50px", md: "62px" }}
+            textStyle="pageTitle"
             color="lilac.500"
-            fontWeight="bold"
+            mb={{ base: 4, md: 6 }}
           >
             Get In Touch
           </Text>
-          <Text m="20px 0px" fontSize="50px">      
+          <Text m="20px 0px" fontSize="50px">
             👋🏾
           </Text>
           <Text
+            textStyle="body"
             color="gray.500"
-            fontSize={{ base: "16px", md: "20px" }}
             maxWidth="500px"
             margin="0 auto"
           >
@@ -58,13 +56,13 @@ export const Contact: React.FC = () => {
           >
             <Link to={routes.LINKEDIN} target="_blank" rel="noopener noreferrer">
               <Button
-                variant="outline"
+                variant="glass"
               >
                 View my LinkedIn
               </Button>
             </Link>
             <Link to={routes.EMAIL_ME}>
-              <Button variant="outline">Email Me</Button>
+              <Button variant="glass">Email Me</Button>
             </Link>
           </Box>
         </Center>

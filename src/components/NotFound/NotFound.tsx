@@ -13,7 +13,7 @@ export const NotFound: React.FC = () => {
         margin="0 auto"
         justifyContent="center"
         color="lilac.500"
-        fontFamily="'Roboto Mono', monospace"
+        fontFamily="code"
       >
         <Text fontSize="60px" margin="0 0">
           404

@@ -14,7 +14,7 @@ const routes: Routes = {
     SKILLS_ROUTE: "/skills",
     EXPERIENCE_ROUTE: "/experience",
     CONTACT_ROUTE: "/contact",
-    LINKEDIN: "https://www.linkedin.com/in/keanu-hilaire-60ab26127/",
+    LINKEDIN: "https://www.linkedin.com/in/keanu-moreno-hilaire-60ab26127/",
     EMAIL_ME: "mailto:keanuhilaire@gmail.com",
 };
 

@@ -4,6 +4,7 @@ import {
   extendTheme,
 } from '@chakra-ui/react';
 import _ from 'lodash';
+import { glassSurface } from './theme/glass';
 
 export type ColorScheme = ThemeTypings['colorSchemes'];
 export type ChakraColor = ThemeTypings['colors'];
@@ -90,12 +91,54 @@ export const chakraTheme = extendTheme({
     },
   },
   fonts: {
-    // this is the default font on all components:
-    heading: '"DM Sans", sans-serif',
-    body: '"DM Sans", sans-serif',
-    code: '"Roboto Mono", monospace',
+    // Space Grotesk (display) + Inter (body) + Space Mono (accents); loaded via
+    // the Google Fonts <link> in index.html. Gorehand stays the logo font only.
+    heading: '"Space Grotesk", sans-serif',
+    body: '"Inter", sans-serif',
+    code: '"Space Mono", monospace',
     // you can use this font by setting `fontFamily="serif"`:
     serif: '"Roboto Slab", serif',
+  },
+  // Shared responsive type scale — one source of truth so sizing/rhythm stays
+  // uniform across pages and scales consistently desktop <-> mobile. Apply with
+  // the `textStyle="..."` prop.
+  textStyles: {
+    pageTitle: {
+      fontFamily: 'heading',
+      fontWeight: 'bold',
+      lineHeight: 1.1,
+      letterSpacing: '-0.02em',
+      fontSize: { base: '4xl', md: '5xl' },
+    },
+    displayName: {
+      fontFamily: 'heading',
+      fontWeight: 'bold',
+      lineHeight: 1.05,
+      letterSpacing: '-0.02em',
+      fontSize: { base: '3xl', md: '6xl' },
+    },
+    sectionTitle: {
+      fontFamily: 'heading',
+      fontWeight: 'bold',
+      lineHeight: 1.2,
+      fontSize: { base: 'xl', md: '2xl' },
+    },
+    subtitle: {
+      fontFamily: 'body',
+      fontWeight: 'medium',
+      lineHeight: 1.4,
+      fontSize: { base: 'md', md: 'lg' },
+    },
+    body: {
+      fontFamily: 'body',
+      lineHeight: 1.6,
+      fontSize: { base: 'sm', md: 'md' },
+    },
+    eyebrow: {
+      fontFamily: 'code',
+      letterSpacing: '0.04em',
+      fontSize: { base: 'xs', md: 'sm' },
+    },
   },
   colors: {
     black: { 500: '#1E1E1E' },
@@ -103,7 +146,15 @@ export const chakraTheme = extendTheme({
     indigo : { 500: '#460673' },
     violet: { 500: '#230344' },
     lilac: { 500: '#BE97C6' },
-    gold: { 500: '#98821e' },
+    // Brightened brand gold. gold.500 is the deeper, legible-on-glass text tone
+    // (was the old olive #98821e); gold.400 is the rich accent used for glass
+    // borders, ring fills, and glows.
+    gold: {
+      300: '#E8CE6B',
+      400: '#D4AF37',
+      500: '#C9A227',
+      600: '#A8851C',
+    },
   },
   // Two-mode theme (BR-11), replacing the old styled-components purple/black
   // themes. light = "purple" (default), dark = "black". bg-main and shadow-main
@@ -112,7 +163,22 @@ export const chakraTheme = extendTheme({
   semanticTokens: {
     colors: {
       'bg-main': { default: 'indigo.500', _dark: 'black.500' },
-      'shadow-main': { default: 'black.500', _dark: 'indigo.500' },
+      'shadow-main': { default: 'black.500', _dark: 'black.500' },
+      // Frosted-glass surface tokens (additive). Light/purple mode carries a
+      // touch more frost than the darker black mode. Consumed by the `glass`
+      // component variants and the shared glassSurface helper.
+      'glass-bg': {
+        default: 'rgba(255, 255, 255, 0.10)',
+        _dark: 'rgba(255, 255, 255, 0.06)',
+      },
+      'glass-border': {
+        default: 'rgba(255, 255, 255, 0.22)',
+        _dark: 'rgba(255, 255, 255, 0.14)',
+      },
+      'glass-track': {
+        default: 'rgba(255, 255, 255, 0.16)',
+        _dark: 'rgba(255, 255, 255, 0.10)',
+      },
     },
   },
   // Theme is NOT persisted across reloads (matches legacy isBlackTheme useState,
@@ -136,12 +202,39 @@ export const chakraTheme = extendTheme({
   components: {
     Button: {
       variants: {
+        // Frosted-glass CTA. The primary button look across the site.
+        glass: {
+          ...glassSurface,
+          cursor: 'pointer',
+          height: '60px',
+          width: '200px',
+          fontFamily: 'code',
+          fontSize: '16px',
+          color: 'gold.400',
+          borderRadius: 'full',
+          transition: 'all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1)',
+          _focusVisible: {
+            outline: '2px solid',
+            outlineColor: 'gold.400',
+            outlineOffset: '2px',
+          },
+          _hover: {
+            bg: 'rgba(255, 255, 255, 0.16)',
+            borderColor: 'gold.400',
+            transform: 'translateY(-2px)',
+            boxShadow:
+              '0 8px 24px rgba(212, 175, 55, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.25)',
+          },
+          _active: {
+            transform: 'translateY(0)',
+          },
+        },
 
         outline: (props: ButtonProps) => ({
           cursor: 'pointer',
           height: "60px",
           width: "200px",
-          fontFamily: '"Roboto Mono", monospace',
+          fontFamily: 'code',
           fontSize: "16px",
           color: "gold.500",
           bg: "transparent",
@@ -159,6 +252,37 @@ export const chakraTheme = extendTheme({
             transform: "translate(-5px, -5px)",
           }   
         }),
+      },
+    },
+    // Card is a multipart component; the `glass` variant frosts the container.
+    Card: {
+      variants: {
+        glass: {
+          container: {
+            ...glassSurface,
+            borderRadius: 'xl',
+          },
+        },
+      },
+    },
+    // Frosted chip used for the Skills tags.
+    Badge: {
+      variants: {
+        glass: {
+          ...glassSurface,
+          color: 'gold.500',
+          fontFamily: 'code',
+          fontWeight: 'medium',
+          textTransform: 'none',
+          borderRadius: 'full',
+          px: 3,
+          py: 1,
+          transition: 'all 0.2s ease',
+          _hover: {
+            borderColor: 'gold.400',
+            boxShadow: '0 4px 16px rgba(212, 175, 55, 0.22)',
+          },
+        },
       },
     },
     Container: {
